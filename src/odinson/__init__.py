@@ -7,11 +7,17 @@ __all__ = ["Dhor"]
 
 
 class Dhor:
-    def __new__(self):
-        raise NotImplementedError
+    def __new__(cls, *args, **kwargs):
+        """
+        Called when creating a new instance of the class
+        If super call is omitted, no new instance of the class will be returned
+        """
+        print("Creating a new instance")
+        return super().__new__(cls, *args, **kwargs)
 
     def __init__(self):
         """Initializes the instance of the class after it is created. Should never have a return value"""
+        print("Initializing a new instance")
         self.storage = {}
 
     def __repr__(self) -> str:
